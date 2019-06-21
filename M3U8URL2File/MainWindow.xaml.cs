@@ -76,6 +76,7 @@ namespace M3U8URL2File
                 return;
 
             int startIndex = Convert.ToInt32(TextBox_StartIndex.Text);
+            int initIndex = startIndex;
             int total = Convert.ToInt32(TextBox_MatchCount.Text);
             string input = TextBox_Input.Text;
             Button_Down.IsEnabled = false;
@@ -136,7 +137,7 @@ namespace M3U8URL2File
                                 writer.WriteLine(lines[j]);
                             }
                             writer.Close();
-                            TextBox_MatchCount.Text = (startIndex - 1) + "/" + total;
+                            TextBox_MatchCount.Text = (startIndex - 1) + "/" + (total + initIndex - 1);
                         }));
                     }
 
